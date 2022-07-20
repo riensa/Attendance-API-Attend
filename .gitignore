@@ -1,3 +1,6 @@
+# upload directory
+public/images/*
+
 # Logs
 logs
 *.log
