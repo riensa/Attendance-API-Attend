@@ -49,6 +49,16 @@ exports.report = async (req, res) => {
 			}]
 		})
 
+		// format startdate & enddate
+
+		data = data.map(d => {
+			d.dataValues.date = dayjs(d.startdate).subtract(7, 'hour').format('YYYY-MM-DD')
+			d.dataValues.starttime = dayjs(d.startdate).subtract(7, 'hour').format('HH:mm')
+			d.dataValues.endtime = dayjs(d.enddate).subtract(7, 'hour').format('HH:mm')
+
+			return d
+		})
+
 		return res.send({
 			status: 200,
 			success: true,
