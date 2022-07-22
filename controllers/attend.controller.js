@@ -41,6 +41,9 @@ exports.report = async (req, res) => {
 		// fetch all data
 		let data =  await AttendsDB.findAll({
 			where: filterAttends,
+			order: [
+				['startdate', 'ASC'],
+			],
 			include: [{
 				model: EmployeesDB,
 				attributes:['id', 'fullname', ],
